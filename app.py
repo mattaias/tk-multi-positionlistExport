@@ -11,7 +11,7 @@
 
 from sgtk.platform import Application
 
-class StgkStarterApp(Application):
+class StgkPositionlistExport(Application):
     """
     The app entry point. This class is responsible for intializing and tearing down
     the application, handle menu registration etc.
@@ -27,15 +27,15 @@ class StgkStarterApp(Application):
         # and business logic of the app is kept. By using the import_module command,
         # toolkit's code reload mechanism will work properly.
         app_payload = self.import_module("app")
-
+		
         # now register a *command*, which is normally a menu entry of some kind on a Shotgun
         # menu (but it depends on the engine). The engine will manage this command and 
         # whenever the user requests the command, it will call out to the callback.
 
         # first, set up our callback, calling out to a method inside the app module contained
         # in the python folder of the app
-        menu_callback = lambda : app_payload.dialog.show_dialog(self)
+        menu_callback = lambda : app_payload.positionExtractMaya.createPositionlist()
 
         # now register the command with the engine
-        self.engine.register_command("Export positionlist...", menu_callback)
+        self.engine.register_command("Export positionlist", menu_callback)
         
