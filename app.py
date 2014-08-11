@@ -14,6 +14,7 @@ import maya.cmds as cmds
 import json
 import os
 
+
 class StgkPositionlistExport(Application):
 	"""
 	The app entry point. This class is responsible for intializing and tearing down
