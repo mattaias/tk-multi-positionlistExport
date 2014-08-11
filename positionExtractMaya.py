@@ -23,7 +23,8 @@ def setAssetDict(name, longName, asset, assetType, animated, position, rotation,
 def createPositionlist():
 	childrenAndParentsDict, typeDict = getAllParentsAndTypeDict(cmds.listRelatives(cmds.ls(type = "locator") ,parent = True, type = "transform"))
 	cmds.select(getMainSceneObjects())
-	retrieveDataFromSelection(allParents = childrenAndParentsDict, allTypes = typeDict)
+	tempData, tempPath = retrieveDataFromSelection(allParents = childrenAndParentsDict, allTypes = typeDict)
+	return tempData, tempPath
 	
 def getAllParentsAndTypeDict(objectList = None):
 	childrenAndParentsDict = {}
@@ -91,7 +92,7 @@ def retrieveDataFromSelection(allTypes = None, allParents = None):
 		
 	targetPath = "%spositionlist.txt" %(getDataFolder())
 	jsonData = saveJsonPositionList(transformDataDict, targetPath)
-	return jsonData
+	return jsonData, targetPath
 		
 def getFileName():
 	return cmds.file(q=True,sceneName=True)
@@ -158,7 +159,7 @@ def loadJsonPositionList(input):
 	
 def main():
 	superPrint("Start") 
-	returnValue = createPositionlist()
+	returnValue, path = createPositionlist()
 	superPrint("End") 
 	
 	
