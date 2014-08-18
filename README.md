@@ -1,7 +1,9 @@
-# Welcome to the Shotgun Pipeline Toolkit Starter App!
+# Positionlist Exporter tool for Maya
 
-This app serves as a quick way to get started when doing Toolkit App development.
-If you want to get up and running quickly, follow these simple steps:
+App to create a position list from Maya.
+Alpha version, will change a bit over time.
+
+Based on the hotgun Pipeline Toolkit Starter App; more info about that in the next chapters:
 
 ## Step 1. Pick a branch!
 
